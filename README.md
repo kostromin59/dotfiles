@@ -1,0 +1,2 @@
+# dotfiles
+EndeavourOS Sway setup
