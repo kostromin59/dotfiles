@@ -1,0 +1,55 @@
+{
+  "position": "top",
+  "spacing": "10",
+  "margin-top": 5,
+  "margin-left": 10,
+  "margin-right": 10,
+
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["sway/window"],
+  "modules-right": ["tray", "pulseaudio", "network", "battery", "sway/language", "clock", "custom/powermenu"],
+
+  "sway/window": {
+    "max-length": 75,
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "墳 {volume}%",
+    "on-click": "pavucontrol",
+    "scroll-step": 1
+  },
+  "clock": {
+    "format": " {:%H:%M:%S}",
+    "interval": 1,
+    "tooltip-format": "<big>{:%Y, %d %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "custom/powermenu": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "wlogout"
+  },
+  "sway/language": {
+    "tooltip": false
+  },
+  "tray": {
+    "spacing": 5
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", "", "", "", "", "", "", ""]
+  },
+  "network": {
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "󰈀  {ifname}: {ipaddr}/{cidr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "tooltip": false,
+    "on-click-right": "kitty nmtui",
+  },
+}

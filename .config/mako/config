@@ -1,0 +1,10 @@
+sort=-time
+layer=overlay
+background-color=#181926
+border-size=3
+border-color=#c6a0f6
+border-radius=10
+icons=1
+font=JetBrains Mono 14
+progress-color=#ed8796
+default-timeout=10000
