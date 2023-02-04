@@ -14,8 +14,10 @@
     "tooltip": false
   },
   "pulseaudio": {
-    "format": "墳 {volume}%",
+    "format": "墳 {volume}%  {format_source}",
     "on-click": "pavucontrol",
+    "format-source-muted": "OFF",
+    "format-source": "ON",
     "scroll-step": 1
   },
   "clock": {

@@ -13,11 +13,19 @@ set $menu wofi -I -b -a -p "" --show drun
 
 font JetBrains Mono 11
 
+output DP-1 {
+  mode 1920x1080@143.854996Hz
+}
+
+output DP-2 {
+  mode 1920x1080@143.854996Hz
+}
 gaps inner 10
 gaps outer 2
 default_border pixel 2
 default_floating_border pixel 2
 titlebar_border_thickness 2
+smart_borders on
 
 client.urgent #ed8796 #ed8796 #181926 #c6a0f6 #ed8796 
 client.focused_inactive #181926 #181926 #cad3f5 #ed8796 #181926
@@ -70,29 +78,98 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# Switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
+# FIRST MONITOR
+set $fm DP-1
+# SECOND MONITOR
+set $sm DP-2
 
-# Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws0 "0"
+
+set $wsa1 "A-1"
+set $wsa2 "A-2"
+set $wsa3 "A-3"
+set $wsa4 "A-4"
+set $wsa5 "A-5"
+set $wsa6 "A-6"
+set $wsa7 "A-7"
+set $wsa8 "A-8"
+set $wsa9 "A-9"
+set $wsa0 "A-0"
+
+bindsym --to-code $mod+1 workspace $ws1
+bindsym --to-code $mod+2 workspace $ws2
+bindsym --to-code $mod+3 workspace $ws3
+bindsym --to-code $mod+4 workspace $ws4
+bindsym --to-code $mod+5 workspace $ws5
+bindsym --to-code $mod+6 workspace $ws6
+bindsym --to-code $mod+7 workspace $ws7
+bindsym --to-code $mod+8 workspace $ws8
+bindsym --to-code $mod+9 workspace $ws9
+bindsym --to-code $mod+0 workspace $ws0
+
+bindsym --to-code $mod+F1 workspace $wsa1
+bindsym --to-code $mod+F2 workspace $wsa2
+bindsym --to-code $mod+F3 workspace $wsa3
+bindsym --to-code $mod+F4 workspace $wsa4
+bindsym --to-code $mod+F5 workspace $wsa5
+bindsym --to-code $mod+F6 workspace $wsa6
+bindsym --to-code $mod+F7 workspace $wsa7
+bindsym --to-code $mod+F8 workspace $wsa8
+bindsym --to-code $mod+F9 workspace $wsa9
+bindsym --to-code $mod+F10 workspace $wsa0
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
+
+bindsym $mod+Shift+F1 move container to workspace $wsa1
+bindsym $mod+Shift+F2 move container to workspace $wsa2
+bindsym $mod+Shift+F3 move container to workspace $wsa3
+bindsym $mod+Shift+F4 move container to workspace $wsa4
+bindsym $mod+Shift+F5 move container to workspace $wsa5
+bindsym $mod+Shift+F6 move container to workspace $wsa6
+bindsym $mod+Shift+F7 move container to workspace $wsa7
+bindsym $mod+Shift+F8 move container to workspace $wsa8
+bindsym $mod+Shift+F9 move container to workspace $wsa9
+bindsym $mod+Shift+F10 move container to workspace $wsa0
+
+workspace $ws1 output $fm
+workspace $ws2 output $fm
+workspace $ws3 output $fm
+workspace $ws4 output $fm
+workspace $ws5 output $fm
+workspace $ws6 output $fm
+workspace $ws7 output $fm
+workspace $ws8 output $fm
+workspace $ws9 output $fm
+workspace $ws0 output $fm
+
+workspace $wsa1 output $sm
+workspace $wsa2 output $sm
+workspace $wsa3 output $sm
+workspace $wsa4 output $sm
+workspace $wsa5 output $sm
+workspace $wsa6 output $sm
+workspace $wsa7 output $sm
+workspace $wsa8 output $sm
+workspace $wsa9 output $sm
+workspace $wsa0 output $sm
 
 bindsym $mod+b splith
 bindsym $mod+v splitv
@@ -118,13 +195,15 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-# yay -S brightnessctl
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec $menu
+
+# Mute microphone
+bindsym --to-code alt_r exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 mode "resize" {
     bindsym $left resize shrink width 10px
