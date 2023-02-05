@@ -2,6 +2,8 @@
   font-family: "JetBrains Mono Nerd Font";
   font-size: 14px;
   min-height: 0;
+  padding: 0;
+  margin: 0;
 }
 
 window#waybar {
@@ -17,7 +19,9 @@ tooltip {
 
 #workspaces {
   background-color: #181926;
+  box-shadow: none;
   border-radius: 10px;
+  border: 2px solid #c6a0f6;
 }
 
 #workspaces button {
@@ -25,11 +29,11 @@ tooltip {
   color: #cad3f5;
   border-radius: 0;
   font-weight: 700;
-  border: none;
   outline: none;
-  border: 2px solid #c6a0f6;
-  border-left: none;
-  border-right: none;
+}
+
+.modules-left {
+  border-radius: 10px;
 }
 
 #workspaces button.focused {
@@ -38,40 +42,30 @@ tooltip {
 }
 
 #workspaces button:hover {
-  background: #ed8796;
-  color: #121926;
-  outline: none;
-  border: none;
   box-shadow: none;
-  text-shadow: none;
 }
 
 #workspaces button:first-child {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-left: 2px solid #c6a0f6;
-}
-
-#workspaces button:first-child:hover {
-  border-left: 2px solid #ed8796;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 #workspaces button:last-child {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-right: 2px solid #c6a0f6;
-}
-
-#workspaces button:last-child:hover {
-  border-right: 2px solid #ed8796;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 #window {
   background-color: #121926;
   color: #cad3f5;
-  padding: 3px 8px;
+  padding: 0 8px;
   border-radius: 10px;
   border: 2px solid #c6a0f6;
+}
+
+#waybar.empty #window {
+  background-color: transparent;
+  border: none;
 }
 
 #language,
