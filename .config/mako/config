@@ -8,3 +8,4 @@ icons=1
 font=JetBrains Mono 14
 progress-color=#ed8796
 default-timeout=10000
+on-button-middle=exec makoctl menu -n "$id" wofi -d -p 'Select action'
